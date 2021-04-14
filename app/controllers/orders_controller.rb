@@ -21,9 +21,7 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    print(order_params)
     parsed_data = JSON.parse(order_params.to_json)
-    parsed_data["net_amount"] = "12"
     if parsed_data['discount_amount'] != ''
       parsed_data["net_amount"] = (parsed_data["gross_amount"].to_i - parsed_data["discount_amount"].to_i).to_s
     else
@@ -45,8 +43,14 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1 or /orders/1.json
   def update
     respond_to do |format|
-      # TODO create ile birlestirilecek
-      
+    # TODO create ile birlestirilecek
+    parsed_data = JSON.parse(order_params.to_json)
+    if parsed_data['discount_amount'] != ''
+      parsed_data["net_amount"] = (parsed_data["gross_amount"].to_i - parsed_data["discount_amount"].to_i).to_s
+    else
+      parsed_data["net_amount"] = parsed_data["net_amount"]
+    end
+    parsed_data["net_amount"] = "12"
 
       if @order.update(parsed_data)
 
