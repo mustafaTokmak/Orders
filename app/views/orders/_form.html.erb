@@ -15,6 +15,10 @@
     <%= form.label :currency %>
     <%= form.text_field :currency, required: true%>
   </div>-->
+  <div class="field">
+      <%= form.label :currency %>
+      <%= form.select :currency,['TL','USD','EUR'] %>
+  </div>
 
   <div class="field">
     <%= form.label  'First Name*' %>
