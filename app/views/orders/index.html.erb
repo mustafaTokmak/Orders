@@ -25,7 +25,7 @@
         <td><%= order.gross_amount %></td>
         <td><%= order.discount_amount %></td>
         <td><%= order.net_amount %></td>
-        <td><%= order.category_id %></td>
+        <td><%= order.category_id.present? ? Category.find(order.category_id).category_name : '' %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
