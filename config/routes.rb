@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :orders
   # get 'home/index'
   root 'home#index'
   get 'home/about'
