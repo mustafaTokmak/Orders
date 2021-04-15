@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
       parsed_data["net_amount"] = parsed_data["net_amount"]
     end
     @order = Order.new(parsed_data)
-
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: "Order was successfully created." }
@@ -50,7 +50,6 @@ class OrdersController < ApplicationController
     else
       parsed_data["net_amount"] = parsed_data["net_amount"]
     end
-    parsed_data["net_amount"] = "12"
 
       if @order.update(parsed_data)
 
