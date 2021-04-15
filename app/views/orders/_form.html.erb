@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
- <!--  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency, required: true%>
-  </div>-->
   <div class="field">
       <%= form.label :currency %>
       <%= form.select :currency,['TL','USD','EUR'] %>
@@ -22,31 +18,25 @@
 
   <div class="field">
     <%= form.label  'First Name*' %>
-    <%= form.text_field :first_name, required: true%>
+    <%= form.text_field :first_name%>
   </div>
 
   <div class="field">
     <%= form.label 'Last Name*' %>
-    <%= form.text_field :last_name, required: true%>
+    <%= form.text_field :last_name%>
   </div>
 
   <div class="field">
     <%= form.label 'Gross Amount*' %>
-    <%= form.text_field :gross_amount, required: true %>
+    <%= form.text_field :gross_amount %>
   </div>
 
   <div class="field">
     <%= form.label :discount_amount %>
     <%= form.text_field :discount_amount %>
   </div>
-  
-
-  <!-- <div class="field">
-    <%= form.label :net_amount %>
-    <%= form.text_field :net_amount%>
-  </div>  -->
-
-  <div class="field">
+ 
+   <div class="field">
     <%= form.label :category_id %>
     <%= form.collection_select :category_id, Category.order(:category_name),:id,:category_name, include_blank: true %>
   </div>
