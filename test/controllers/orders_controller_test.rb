@@ -4,6 +4,8 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @order = orders(:one)
   end
+  
+
 
   test "should get index" do
     get orders_url
@@ -23,10 +25,16 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to order_url(Order.last)
   end
 
-  test "should show order" do
-    get order_url(@order)
-    assert_response :success
-  end
+  # test "should not create order" do
+  #   not assert_no_difference('Order.count') do
+  #     post orders_url, params: { order: { category_id: @category.category_id, currency: @order.currency, discount_amount: @order.discount_amount, first_name: '', gross_amount: @order.gross_amount, last_name: @order.last_name, net_amount: @order.net_amount } }
+  #   end
+
+  # end
+  # test "should show order" do
+  #   get order_url(@order)
+  #   assert_response :success
+  # end
 
   test "should get edit" do
     get edit_order_url(@order)
