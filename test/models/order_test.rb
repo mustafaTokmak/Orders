@@ -1,9 +1,9 @@
 require "test_helper"
 
 class OrderTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "the truth" do
+    assert true
+  end
   test "should save with required fields" do 
     order = Order.new(first_name: 'first_name', last_name: 'last_name',currency:'1',gross_amount:1)
     order.valid?
