@@ -4,18 +4,26 @@ class Order < ApplicationRecord
 	validate :validate_discount_amount
 	validate :validate_is_gross_amount_positive_value
   validate :validate_is_discount_amount_positive_value
+  validate :validate_is_currency_TL_or_USD_or_EUR
 
   def validate_is_gross_amount_positive_value
     if gross_amount.present?
       if  gross_amount < 0
-        errors.add(:gross_amount, "gross_amount is have to positive value")
+        errors.add(:gross_amount, "gross_amount should positive value")
+     end
+    end
+  end
+  def validate_is_currency_TL_or_USD_or_EUR
+    if currency.present?
+      if ! (currency == 'TL' || currency == 'USD' || currency == 'EUR')
+        errors.add(:currency, "currency should TL or USD or EUR")
      end
     end
   end
   def validate_is_discount_amount_positive_value
     if  discount_amount.present?
       if discount_amount < 0
-        errors.add(:discount_amount, "discount_amount is have to positive value")
+        errors.add(:discount_amount, "discount_amount should positive value")
       end
     end
   end
