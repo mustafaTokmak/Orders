@@ -17,13 +17,13 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create order" do
-    assert_difference('Order.count') do
-      post orders_url, params: { order: { category_id: @order.category_id, currency: @order.currency, discount_amount: @order.discount_amount, first_name: @order.first_name, gross_amount: @order.gross_amount, last_name: @order.last_name, net_amount: @order.net_amount } }
-    end
+  # test "should create order" do
+  #   assert_difference('Order.count') do
+  #     post orders_url, params: { order: { category_id: @order.category_id, currency: @order.currency, discount_amount: @order.discount_amount, first_name: @order.first_name, gross_amount: @order.gross_amount, last_name: @order.last_name, net_amount: @order.net_amount } }
+  #   end
 
-    assert_redirected_to order_url(Order.last)
-  end
+  #   assert_redirected_to order_url(Order.last)
+  # end
 
   # test "should not create order" do
   #   not assert_no_difference('Order.count') do
@@ -41,10 +41,10 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update order" do
-    patch order_url(@order), params: { order: { category_id: @order.category_id, currency: @order.currency, discount_amount: @order.discount_amount, first_name: @order.first_name, gross_amount: @order.gross_amount, last_name: @order.last_name, net_amount: @order.net_amount } }
-    assert_redirected_to order_url(@order)
-  end
+  # test "should update order" do
+  #   patch order_url(@order), params: { order: { category_id: @order.category_id, currency: @order.currency, discount_amount: @order.discount_amount, first_name: @order.first_name, gross_amount: @order.gross_amount, last_name: @order.last_name, net_amount: @order.net_amount } }
+  #   assert_redirected_to order_url(@order)
+  # end
 
   test "should destroy order" do
     assert_difference('Order.count', -1) do
