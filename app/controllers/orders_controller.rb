@@ -21,13 +21,14 @@ class OrdersController < ApplicationController
 
   # POST /orders or /orders.json
   def create
-    parsed_data = JSON.parse(order_params.to_json)
-    if parsed_data['discount_amount'] != ''
-      parsed_data["net_amount"] = (parsed_data["gross_amount"].to_i - parsed_data["discount_amount"].to_i).to_s
-    else
-      parsed_data["net_amount"] = parsed_data["net_amount"]
-    end
-    @order = Order.new(parsed_data)
+    # parsed_data = JSON.parse(order_params.to_json)
+    # if parsed_data['discount_amount'] != ''
+    #   parsed_data["net_amount"] = (parsed_data["gross_amount"].to_i - parsed_data["discount_amount"].to_i).to_s
+    # else
+    #   parsed_data["net_amount"] = parsed_data["net_amount"]
+    # end
+    @order = Order.new(order_params)
+    @order.net_amount = @order.gross_amount - @order.discount_amount 
     
     respond_to do |format|
       if @order.save
